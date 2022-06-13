@@ -27,8 +27,8 @@ public class Address {
 	public Address() {
 	}
 
-	public Address(Long id, String address, String location, String province, String countrie) {
-		this.id = id;
+	public Address(String address, String location, String province, String countrie) {
+
 		this.address = address;
 		this.location = location;
 		this.province = province;

@@ -1,11 +1,12 @@
 package com.BlogSystem.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -13,17 +14,18 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_employee")
-public class Employee implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Employee/* implements Serializable */ {
+	// private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name = "con_employee")
+	@Column(name = "id_employee")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo;
 	@Column(name = "lastName")
 	private String lastName;
 	@Column(name = "firstName")
 	private String firstName;
-	@Column(name = "dateOfBirth")
-	private Date dateOfBirth;
+	@Column(name = "email")
+	private String email;
 	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_address")
 	private Address address;
@@ -31,11 +33,10 @@ public class Employee implements Serializable {
 	public Employee() {
 	}
 
-	public Employee(Long codigo, String lastName, String firstName, Date dateOfBirth) {
-		this.codigo = codigo;
+	public Employee(String lastName, String firstName, String email) {
 		this.lastName = lastName;
 		this.firstName = firstName;
-		this.dateOfBirth = dateOfBirth;
+		this.email = email;
 	}
 
 	public Long getCodigo() {
@@ -62,12 +63,12 @@ public class Employee implements Serializable {
 		this.firstName = firstName;
 	}
 
-	public Date getDateOfBirth() {
-		return dateOfBirth;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Address getAddress() {
@@ -80,8 +81,8 @@ public class Employee implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Employee [codigo=" + codigo + ", lastName=" + lastName + ", firstName=" + firstName
-				+ ", fechaNacimiento=" + dateOfBirth + "]";
+		return "Employee [codigo=" + codigo + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email
+				+ "]";
 	}
 
 }

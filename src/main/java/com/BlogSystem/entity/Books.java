@@ -6,9 +6,10 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-
+@Table(name = "tbl_books")
 public class Books {
 	@Id
 	@Column(name = "id_books")
@@ -22,8 +23,8 @@ public class Books {
 	public Books() {
 	}
 
-	public Books(Long id, String title) {
-		this.id = id;
+	public Books(String title) {
+
 		this.title = title;
 
 	}
@@ -94,5 +95,4 @@ public class Books {
 		return "Books [id=" + id + ", title=" + title + ", author=" + author + "]";
 	}
 
-//author_id
 }
