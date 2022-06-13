@@ -9,19 +9,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.BlogSystem.entity.Author;
 import com.BlogSystem.entity.Employee;
-import com.BlogSystem.service.implement.AuthorServiceImpl;
 import com.BlogSystem.service.implement.EmployeeServiceImpl;
 
 @RestController
 public class EmployeeController {
 	@Autowired
 	EmployeeServiceImpl esi;
-	AuthorServiceImpl asi;
 
 	@PostMapping("/")
-	public void addEmployee() {
+	public void add() {
 		esi.addEmployee();
 	}
 
@@ -38,11 +35,4 @@ public class EmployeeController {
 	public void delete() {
 		esi.deleteAllData();
 	}
-
-	/////////////////
-	@GetMapping("/findbyid/{id_authors}")
-	public Author getAuthorUsingId(@PathVariable Long id_authors) {
-		return asi.findAllAuthorById(id_authors);
-	}
-
 }
