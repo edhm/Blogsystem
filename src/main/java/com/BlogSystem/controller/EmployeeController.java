@@ -17,7 +17,7 @@ public class EmployeeController {
 	@Autowired
 	EmployeeServiceImpl esi;
 
-	@PostMapping("/")
+	@PostMapping("/addempoyee/")
 	public void add() {
 		esi.addEmployee();
 	}
@@ -26,7 +26,7 @@ public class EmployeeController {
 	 * @GetMapping("/findall") public ArrayList<Employee> getAllEmployee() { return
 	 * esi.findAllEmployees(); }
 	 */
-	@GetMapping("/findbyid/{id_employee}")
+	@GetMapping("/findbyidemployee/{id_employee}")
 	public Employee getEmployeeUsingId(@PathVariable long id_employee) {
 		return esi.findAllEmployeeByID(id_employee);
 	}

@@ -1,5 +1,14 @@
 package com.BlogSystem.service;
 
-public interface AuthorService {
+import com.BlogSystem.entity.Author;
+import com.BlogSystem.entity.Employee;
 
+public interface AuthorService {
+	// ArrayList<Employee> findAllEmployees();
+
+	Author findAllAuthorByID(long id);
+
+	void addAuthor();
+
+	void deleteAllData();
 }
