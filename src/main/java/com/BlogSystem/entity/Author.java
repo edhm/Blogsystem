@@ -26,7 +26,7 @@ public class Author {
 	@Column(name = "nationality")
 	private String nationality;
 	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
-	private List<Books> books = new ArrayList<>();
+	private List<BooksEntity> books = new ArrayList<>();
 
 	public Author(String firstName, String lastName, String nationality) {
 
@@ -70,11 +70,11 @@ public class Author {
 		this.nationality = nationality;
 	}
 
-	public List<Books> getBooks() {
+	public List<BooksEntity> getBooks() {
 		return books;
 	}
 
-	public void setBooks(List<Books> books) {
+	public void setBooks(List<BooksEntity> books) {
 		this.books = books;
 	}
 

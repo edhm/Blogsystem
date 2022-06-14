@@ -31,7 +31,7 @@ public class EmployeeController {
 		return esi.findAllEmployeeByID(id_employee);
 	}
 
-	@DeleteMapping("/delete")
+	@DeleteMapping("/deleteemployee")
 	public void delete() {
 		esi.deleteAllData();
 	}

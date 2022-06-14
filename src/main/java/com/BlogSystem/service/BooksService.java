@@ -1,5 +1,11 @@
 package com.BlogSystem.service;
 
-public interface BooksService {
+import com.BlogSystem.entity.BooksEntity;
 
+public interface BooksService {
+	BooksEntity findAllBooksByID(long id);
+
+	void addBooks();
+
+	void deleteBooks();
 }

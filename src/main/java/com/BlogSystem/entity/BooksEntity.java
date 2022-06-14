@@ -3,6 +3,8 @@ package com.BlogSystem.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -10,9 +12,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_books")
-public class Books {
+public class BooksEntity {
 	@Id
 	@Column(name = "id_books")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name = "title")
 	private String title;
@@ -20,10 +23,10 @@ public class Books {
 	@JoinColumn(name = "id_authors")
 	private Author author;
 
-	public Books() {
+	public BooksEntity() {
 	}
 
-	public Books(String title) {
+	public BooksEntity(String title) {
 
 		this.title = title;
 
@@ -71,7 +74,7 @@ public class Books {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Books other = (Books) obj;
+		BooksEntity other = (BooksEntity) obj;
 		if (author == null) {
 			if (other.author != null)
 				return false;
@@ -92,7 +95,7 @@ public class Books {
 
 	@Override
 	public String toString() {
-		return "Books [id=" + id + ", title=" + title + ", author=" + author + "]";
+		return "BooksEntity [id=" + id + ", title=" + title + ", author=" + author + "]";
 	}
 
 }
