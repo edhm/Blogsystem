@@ -3,15 +3,18 @@ package com.BlogSystem.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_address")
-public class Address {
+public class AddressEntity {
 	@Id
 	@Column(name = "id_address")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name = "address")
 	private String address;
@@ -24,10 +27,10 @@ public class Address {
 	@OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
 	private Employee employee;
 
-	public Address() {
+	public AddressEntity() {
 	}
 
-	public Address(String address, String location, String province, String countrie) {
+	public AddressEntity(String address, String location, String province, String countrie) {
 
 		this.address = address;
 		this.location = location;
@@ -85,7 +88,7 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", address=" + address + ", location=" + location + ", province=" + province
+		return "AddressEntity [id=" + id + ", address=" + address + ", location=" + location + ", province=" + province
 				+ ", countrie=" + countrie + ", employee=" + employee.getCodigo() + "]";
 	}
 

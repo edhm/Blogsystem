@@ -1,5 +1,11 @@
 package com.BlogSystem.service;
 
-public interface AddressService {
+import com.BlogSystem.entity.AddressEntity;
 
+public interface AddressService {
+	AddressEntity findAllAddressByID(long id);
+
+	public void addAdress();
+
+	void deleteAddress();
 }

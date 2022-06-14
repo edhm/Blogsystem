@@ -28,7 +28,7 @@ public class Employee/* implements Serializable */ {
 	private String email;
 	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_address")
-	private Address address;
+	private AddressEntity address;
 
 	public Employee() {
 	}
@@ -71,11 +71,11 @@ public class Employee/* implements Serializable */ {
 		this.email = email;
 	}
 
-	public Address getAddress() {
+	public AddressEntity getAddress() {
 		return address;
 	}
 
-	public void setAdress(Address address) {
+	public void setAdress(AddressEntity address) {
 		this.address = address;
 	}
 
